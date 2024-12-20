@@ -4,14 +4,13 @@
     {
       "src": "flask/app.py",
       "use": "@vercel/python",
-      "config": { "runtime": "python3.12" }
+      "config": {
+        "runtime": "python3.12",
+        "installCommand": "pip install --upgrade pip && pip install -r requirements.txt"
+      }
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "flask/static/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "flask/app.py"
